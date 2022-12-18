@@ -1,0 +1,27 @@
+spring:
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
+
+  jwt:
+    header: Authorization
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:tcp://localhost/~/securityWithoutAdapter;AUTO_SERVER=true
+    username: sa
+    password: 1234
+
+#   tcp://localhost/ ;AUTO_SERVER=true >>> h2 database file is lock trouble
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        default_batch_fetch_size: 400
+        use_sql_comments: true
+    open-in-view: false
+    database-platform: org.hibernate.dialect.H2Dialect
